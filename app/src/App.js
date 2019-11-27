@@ -5,7 +5,6 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
 import './App.scss';
 import Home from './containers/Home'
 
@@ -17,12 +16,11 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link exact to="/">Home</Link>
             </li>
           </ul>
         </nav>
         </div>
-
 
         <Switch>
           <Route path="/">

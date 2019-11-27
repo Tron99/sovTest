@@ -1,5 +1,15 @@
 .App {
   text-align: center;
+  #joke-selector{
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+  }
+  #joke-selector .css-2b097c-container {
+    width: 200px;
+    justify-content: right  ;
+  }
+  
   #nav-container{
     max-width: 80%;
     margin: 0 auto;
@@ -8,6 +18,7 @@
       overflow: hidden;
       padding: 0;
       display: flex;
+      margin: 0;
       li {
         list-style:none;
         padding: 20px 30px;
@@ -20,6 +31,7 @@
         transition: 0.3s linear all;
         background: #f90;
       }
+     
     }
     }
 }
