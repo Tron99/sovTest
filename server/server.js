@@ -11,13 +11,13 @@ const typeDef = gql`
         books: [Book]
     }
 `
-;
+    ;
 
 
 
 const resolver = {
     Query: {
-        books: ()=> [
+        books: () => [
             {
                 title: 'Harry Dickson'
             }
@@ -27,10 +27,10 @@ const resolver = {
 
 
 const server = new ApolloServer({
-  typeDefs: [typeDef],
-  resolvers: [resolver],
+    typeDefs: [typeDef],
+    resolvers: [resolver],
 });
 
-server.listen(PORT,()=>{
+server.listen(PORT, () => {
     console.log(`🚀  Server ready at ${PORT}`);
 });
