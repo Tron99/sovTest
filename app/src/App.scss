@@ -4,6 +4,8 @@
     max-width: 80%;
     margin: 0 auto;
     display: flex;
+    justify-content: center;
+  
   }
   #joke-selector .css-2b097c-container {
     width: 200px;
@@ -26,13 +28,32 @@
         text-decoration: none;
         padding: 20px 30px;
         color: #fff;
-      }
-      a:hover{
         transition: 0.3s linear all;
-        background: #f90;
-      }
-     
+        &:hover{
+          background: #f90;
+          cursor: pointer;
+        }
+  
+      } 
     }
     }
+}
+
+#getjoke-btn{
+  background: #099;
+  padding: 20px 30px;
+  color: #fff;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  margin: 20px 0px;
+  transition: 0.3s linear all;
+  &:hover{
+    color: #099;
+    background: #fff;
+    border: 1px solid #099;
+    cursor: pointer;
+
+  }
 }
 }
