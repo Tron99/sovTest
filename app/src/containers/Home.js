@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Select from 'react-select'
 import { connect } from 'react-redux'
 import { getRandJoke } from '../actions/index'
+import {GET_RAND_JOKE_GQL,GET_JOKE_BY_CATEGORY_GQL,CATEGORIES_GQL} from '../Queries'
+import { useLazyQuery } from '@apollo/react-hooks';
 
 const options = [
     { value: 'chocolate', label: 'Chocolate' },
@@ -19,46 +21,46 @@ const noticeStyles = {
     borderRadius: "5px"
 }
 
-class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            selectedOption: null
-        }
+const myEventHandler = (e,props) =>{
+    console.log(e.target)
+}
+
+const Home  = (props) =>{
+
+
+
+    const [categories, setCategories] = useState(null);
+    const [getJoke, { loading, data }] = useLazyQuery(GET_RAND_JOKE_GQL);
+    console.log(data)
+  
+    if (loading) return <p>Loading ...</p>;
+  
+    if (data && data.value) {
+      setCategories(data);
     }
 
-    handleChange = selectedOption => {
-        this.setState({ selectedOption });
-        console.log(`Option selected:`, selectedOption);
-    };
-    componentDidMount(){
-
-    }
-    render() {
-
-        const { selectedOption } = this.state;
         return (
             <div>
                 <h1 style={noticeStyles}>Hey Click On the "Get Joke" button below to get a random or<br />
                     Select the optional category then click on the "Get Joke" button to get a joke by category
                 </h1>
                 <div id="joke-selector">
-                    <div class="joke-container">
+                    <div className="joke-container">
 
                     </div>
 
                     <Select
-                        value={selectedOption}
-                        onChange={this.handleChange}
+                        value={props.selectedOption}
+                        // onChange={}
                         options={options}
                     />
                 </div>
-                <button id="getjoke-btn" onClick={this.props.getRandJoke}>Get Joke</button>
+                <button id="getjoke-btn" onClick={myEventHandler}>Get Joke</button>
 
             </div>
         );
     }
-}
+
 
 const mapStateToPops = (state) => {
 

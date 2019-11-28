@@ -16,12 +16,11 @@ const client = new ApolloClient({
 const store = createStore(reducer)
 
 ReactDOM.render(
-        <Provider store={store}>
-                <ApolloProvider client={client}>
-
+    <Provider store={store}>
+        <ApolloProvider client={client}>
             <App />
-            </ApolloProvider>
-+
+        </ApolloProvider>
+        
         </Provider>
     , document.getElementById('root'));
 

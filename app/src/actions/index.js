@@ -1,6 +1,8 @@
 import { GET_RAND_JOKE, GET_BY_CATEGORY, GET_CATEGORY } from '../types/index'
+import React, { Component } from 'react';
 
 export const getRandJoke = () => {
+
     return {
         type: GET_RAND_JOKE
     }
