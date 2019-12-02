@@ -5,26 +5,27 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import reducer from './reducers/index.js'
+// import reducer from './reducers/index.js'
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks'
+import jokesReducer from './reducers/index'
+
+import {combineReducers}  from 'redux'
 
 const client = new ApolloClient({
     uri: 'http://localhost:4000/graphiql'
 });
 
-const store = createStore(reducer)
+export const store = createStore(combineReducers({
+    joke:jokesReducer
+ }))
 
 ReactDOM.render(
     <Provider store={store}>
         <ApolloProvider client={client}>
             <App />
         </ApolloProvider>
-        
         </Provider>
     , document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

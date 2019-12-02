@@ -7,11 +7,26 @@
     justify-content: center;
   
   }
+  #joke-selector  {
+    display: block !important;
+  }
   #joke-selector .css-2b097c-container {
     width: 200px;
-    justify-content: right  ;
+    margin: 0 auto;
   }
-  
+  #categories{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 400px;
+    li{
+      background: #D8D8D8;
+      color: #099;
+      padding: 10px 20px;
+      margin:2px;
+    }
+  }
   #nav-container{
     max-width: 80%;
     margin: 0 auto;
